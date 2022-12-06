@@ -12,7 +12,7 @@ import {
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Logcomp from './component/logs/Logincomp';
-import ProtectedRoute from './component/routprotect/ProtectedRoute';
+import ProtectedRoute from './component/ProtectedRoute';
 import BlogHome from './pages/blog';
 import { Logpage } from './pages/Logpage';
 import { Registerpage } from './pages/Registerpage'
@@ -24,10 +24,9 @@ export const App = () => {
         <Routes>
           <Route path='/login' element={<Logpage />} />
           <Route path='/register' element={<Registerpage />} />
-
-           <Route element={<ProtectedRoute />}/>
+           <Route element={<ProtectedRoute />}>
             <Route path='/' element={<BlogHome />} />
-          
+          </Route>
         </Routes>
       </ChakraProvider>
     </BrowserRouter>
